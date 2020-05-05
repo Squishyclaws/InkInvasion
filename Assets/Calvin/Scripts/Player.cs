@@ -28,16 +28,18 @@ public class Player : MonoBehaviour
     [SerializeField] Sprite FlyDown;
     [SerializeField] Sprite FlyRight;
 
-    [Header("Sound Imput")] [SerializeField]
-    AudioClip deathSound;
+    //[Header("Sound Imput")] [SerializeField]
+    //AudioClip deathSound;
 
-    [SerializeField] float deathSoundVolume = 0.7f;
-    [SerializeField] AudioClip singleFireSound;
-    [SerializeField] float singleFireSoundVolume;
-    [SerializeField] AudioClip flySound;
-    [SerializeField] float flySoundVolume;
-    [SerializeField] AudioClip hitSound;
-    [SerializeField] float hitSoundVolume;
+    //[SerializeField] float deathSoundVolume = 0.7f;
+    //[SerializeField] AudioClip singleFireSound;
+    //[SerializeField] float singleFireSoundVolume;
+    //[SerializeField] AudioClip flySound;
+    //[SerializeField] float flySoundVolume;
+    //[SerializeField] AudioClip hitSound;
+    //[SerializeField] float hitSoundVolume;
+    
+    [SerializeField] private GameObject deathSound, impactSound;
 
 
     [Header("Projectile")] [SerializeField]
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour
                 transform.position + offsetlaser,
                 Quaternion.identity) as GameObject;
 
-            AudioSource.PlayClipAtPoint(singleFireSound, Camera.main.transform.position, singleFireSoundVolume);
+            //AudioSource.PlayClipAtPoint(singleFireSound, Camera.main.transform.position, singleFireSoundVolume);
 
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
 
@@ -129,25 +131,25 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
+            //AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = FlyLeft;
         }
 
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
+            //AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = FlyUp;
         }
 
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
+            //AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = FlyDown;
         }
 
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
+            //AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = FlyRight;
         }
         else if (Input.anyKey == false)
@@ -169,7 +171,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
+        //AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
+        
+        GameObject sound = Instantiate(impactSound, transform.position, Quaternion.identity);
+        sound.GetComponent<KillCo>().triggerDeath(.2f);
+        
         Debug.Log(other.name + " has hit");
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer)
@@ -195,10 +201,21 @@ public class Player : MonoBehaviour
     private void Die()
     {
         FindObjectOfType<Level>().LoadGameOver();
-        Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        
+        GameObject sound = Instantiate(deathSound, transform.position, Quaternion.identity);
+        sound.GetComponent<KillCo>().triggerDeath(1f);
+        
         Destroy(explosion, DurationOfexplosion);
-        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+        Destroy(gameObject);
+        
+        
+        //AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+    }
+
+    void createSound()
+    {
+        
     }
 
 
@@ -206,7 +223,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AudioSource.PlayClipAtPoint(singleFireSound, Camera.main.transform.position, singleFireSoundVolume);
+            //AudioSource.PlayClipAtPoint(singleFireSound, Camera.main.transform.position, singleFireSoundVolume);
         }
     }
 

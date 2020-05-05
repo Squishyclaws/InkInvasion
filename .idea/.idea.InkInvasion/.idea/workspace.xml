@@ -11,8 +11,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/AudioMannager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/GameSession.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/KillCo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/Level.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/ScoreDisplay.cs" root0="FORCE_HIGHLIGHTING" />
@@ -21,9 +23,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Level.cs" />
-        <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/GameSession.cs" />
+        <option value="$PROJECT_DIR$/Assets/KillCo.cs" />
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/AudioMannager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Player.cs" />
       </list>
     </option>
   </component>
@@ -65,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588698274731</updated>
-      <workItem from="1588698282030" duration="2211000" />
+      <workItem from="1588698282030" duration="7804000" />
     </task>
     <servers />
   </component>

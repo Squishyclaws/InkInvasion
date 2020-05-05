@@ -6,6 +6,7 @@
     <e p="C:\Users\calvi\3D Objects\InkInvasion" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="AudioMannager.cs" t="Include" />
         <e p="Calvin" t="Include">
           <e p="Scripts" t="Include">
             <e p="BackgroundScroller.cs" t="Include" />
@@ -56,6 +57,7 @@
             </e>
           </e>
         </e>
+        <e p="KillCo.cs" t="Include" />
       </e>
       <e p="InkInvasion.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />

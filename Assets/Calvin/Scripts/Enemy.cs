@@ -21,17 +21,21 @@ public class Enemy : MonoBehaviour
     [Header("Sound effects")] [SerializeField]
     GameObject deathVFX;
 
+    [SerializeField] private GameObject deathSound, impactSound;
+    
+
     [SerializeField] float DurationOfexplosion = 1f;
-    [SerializeField] AudioClip deathSound;
-    [SerializeField] float deathSoundVolume = 0.7f;
-    [SerializeField] AudioClip hitSound;
-    [SerializeField] float hitSoundVolume;
-    [SerializeField] AudioClip fireSound;
-    [SerializeField] float fireSoundVolume;
+    //[SerializeField] AudioClip deathSound;
+    //[SerializeField] float deathSoundVolume = 0.7f;
+    //[SerializeField] AudioClip hitSound;
+    //[SerializeField] float hitSoundVolume;
+    //[SerializeField] AudioClip fireSound;
+    //[SerializeField] float fireSoundVolume;
 
     void Start()
     {
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+        //playerSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,7 +63,7 @@ public class Enemy : MonoBehaviour
                 transform.position,
                 Quaternion.identity)
             as GameObject;
-        AudioSource.PlayClipAtPoint(fireSound, Camera.main.transform.position, fireSoundVolume);
+        //AudioSource.PlayClipAtPoint(fireSound, Camera.main.transform.position, fireSoundVolume);
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
     }
 
@@ -72,7 +76,13 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
+        //AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
+        //playerSource.clip = hitSound;
+        //playerSource.Play();
+        
+        GameObject sound = Instantiate(impactSound, transform.position, Quaternion.identity);
+        sound.GetComponent<KillCo>().triggerDeath(.2f);
+        
         Debug.Log(other.name + " has hit");
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer)
@@ -97,9 +107,13 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         FindObjectOfType<GameSession>().AddToScore(scoreValue);
-        Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, Quaternion.identity);
         Destroy(explosion, DurationOfexplosion);
-        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+        
+        GameObject sound = Instantiate(deathSound, transform.position, Quaternion.identity);
+        sound.GetComponent<KillCo>().triggerDeath(1f);
+        
+        //AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+        Destroy(gameObject);
     }
 }

@@ -48,26 +48,21 @@ MonoBehaviour:
   moveSpeed: 20
   padding: 1.7
   health: 1000
-  deathVFX: {fileID: 8772564576587806646, guid: 640acfc2dc8b09f49b3929b6a1b41638,
+  deathVFX: {fileID: 8772564576587806646, guid: bbaf7a99e243fcd42831b8d1c8868960,
     type: 3}
   DurationOfexplosion: 1
-  red: {r: 0, g: 0, b: 0, a: 0}
-  white: {r: 0, g: 0, b: 0, a: 0}
-  spaceBar: {fileID: 0}
-  Arrow: {fileID: 0}
+  red: {r: 1, g: 0.7216981, b: 0.7216981, a: 1}
+  white: {r: 1, g: 1, b: 1, a: 0}
+  tutPanel: {fileID: 0}
   FlyLeft: {fileID: 21300000, guid: 8b6d13cca2ac50d468300369cb402ec8, type: 3}
   FlyStatic: {fileID: 21300000, guid: f12fb45da0eed1747ac423d5e98e62bb, type: 3}
   FlyUp: {fileID: 21300000, guid: 6a91610a029523944ba6f56b38ca0bde, type: 3}
   FlyDown: {fileID: 21300000, guid: 977355d76dae1744d93870aef1887389, type: 3}
   FlyRight: {fileID: 21300000, guid: af91619e39d6e28438b0b815665daeab, type: 3}
-  deathSound: {fileID: 8300000, guid: d7191df47979d5744bf484ed4c4f21f3, type: 3}
-  deathSoundVolume: 0.3
-  singleFireSound: {fileID: 8300000, guid: f81c4755580bc4442ba3710fe4086d30, type: 3}
-  singleFireSoundVolume: 0.1
-  flySound: {fileID: 8300000, guid: caa6fb0cafe357b438525a3020983efb, type: 3}
-  flySoundVolume: 0.05
-  hitSound: {fileID: 8300000, guid: f405517cad626fe40b6c4c3dcfe4113b, type: 3}
-  hitSoundVolume: 0.3
+  deathSound: {fileID: 5125954015210972582, guid: 9f3079ddc8c9322488e2c6c410bdbeb4,
+    type: 3}
+  impactSound: {fileID: 5911949418212126590, guid: d7ac79bd7e297c843ae18633dc36d0aa,
+    type: 3}
   projectileSpeed: 60
   ProjectileFiringPeriod: 0.1
   laserPrefab: {fileID: 1575223388074451936, guid: 7deb7635b60ae604690bf31a5b2d832d,

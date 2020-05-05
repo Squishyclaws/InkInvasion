@@ -120,13 +120,11 @@ MonoBehaviour:
   projectileSpeed: 50
   deathVFX: {fileID: 8772564576587806646, guid: bbaf7a99e243fcd42831b8d1c8868960,
     type: 3}
+  deathSound: {fileID: 5125954015210972582, guid: 9f3079ddc8c9322488e2c6c410bdbeb4,
+    type: 3}
+  impactSound: {fileID: 5911949418212126590, guid: d7ac79bd7e297c843ae18633dc36d0aa,
+    type: 3}
   DurationOfexplosion: 1
-  deathSound: {fileID: 8300000, guid: 91a45ada651986f47828b0aa9901fbb4, type: 3}
-  deathSoundVolume: 0.1
-  hitSound: {fileID: 8300000, guid: f6f4f1500b2d45d4e889eedf1b5ae82a, type: 3}
-  hitSoundVolume: 0.07
-  fireSound: {fileID: 8300000, guid: fcab00f855ee8f54795ccf3f4783c578, type: 3}
-  fireSoundVolume: 0.2
 --- !u!60 &1562456283044676685
 PolygonCollider2D:
   m_ObjectHideFlags: 0
