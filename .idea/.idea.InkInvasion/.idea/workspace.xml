@@ -15,6 +15,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/GameSession.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/Level.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/ScoreDisplay.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -22,6 +23,7 @@
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Level.cs" />
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/GameSession.cs" />
+        <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Enemy.cs" />
       </list>
     </option>
   </component>
@@ -63,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588698274731</updated>
-      <workItem from="1588698282030" duration="1573000" />
+      <workItem from="1588698282030" duration="2211000" />
     </task>
     <servers />
   </component>
