@@ -6,9 +6,12 @@ public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     [Header("Enemy Stats")] [SerializeField]
-    float health = 100;
+    public float health = 100;
 
     [SerializeField] int scoreValue = 150;
+    [SerializeField] private bool isBoss;
+    private BossHP bossHP;
+    [SerializeField] private Color damageColour;
 
 
     [Header("Shooting")] [SerializeField] float shotCounter;
@@ -34,6 +37,10 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        if (isBoss)
+        {
+            bossHP = GetComponent<BossHP>();
+        }
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         //playerSource = GetComponent<AudioSource>();
     }
@@ -69,8 +76,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator ChangeColor()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(0.02f);
+        this.gameObject.GetComponent<SpriteRenderer>().color = damageColour;
+        yield return new WaitForSeconds(0.03f);
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
@@ -98,6 +105,10 @@ public class Enemy : MonoBehaviour
     {
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
+        if (isBoss)
+        {
+            bossHP.updateHealth(health);
+        }
         if (health <= 0)
         {
             Die();

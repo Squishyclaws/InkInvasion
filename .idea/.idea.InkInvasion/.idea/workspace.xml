@@ -12,15 +12,16 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/GameSession.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/HealthPack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/HealthValueIndecator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/GamePause.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/ScoreDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/Level.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AstroidLogic.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/KillCo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/Life.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BossHP.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/GamePause.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/ScoreDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/KillCo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Calvin/Scripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -29,7 +30,6 @@
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Level.cs" />
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/GameSession.cs" />
         <option value="$PROJECT_DIR$/Assets/KillCo.cs" />
-        <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/AudioMannager.cs" />
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/GamePause.cs" />
         <option value="$PROJECT_DIR$/Assets/HealthPack.cs" />
@@ -38,6 +38,8 @@
         <option value="$PROJECT_DIR$/Assets/HealthValueIndecator.cs" />
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Life.cs" />
         <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Calvin/Scripts/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/BossHP.cs" />
       </list>
     </option>
   </component>
@@ -80,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1588698274731</updated>
       <workItem from="1588698282030" duration="8630000" />
-      <workItem from="1588755292367" duration="5498000" />
+      <workItem from="1588755292367" duration="7298000" />
     </task>
     <servers />
   </component>
