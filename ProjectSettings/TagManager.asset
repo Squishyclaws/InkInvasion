@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - music
+  - healthPack
+  - playerBullet
   layers:
   - Default
   - TransparentFX

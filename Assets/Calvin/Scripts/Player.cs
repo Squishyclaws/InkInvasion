@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] Color red, white;
     [SerializeField] GameObject tutPanel;
     Life life;
+    [SerializeField] private GameObject healthValue;
 
     //Sprite changes
     [Header("Sprite Changes")] [SerializeField]
@@ -38,8 +39,11 @@ public class Player : MonoBehaviour
     //[SerializeField] float flySoundVolume;
     //[SerializeField] AudioClip hitSound;
     //[SerializeField] float hitSoundVolume;
-    
+
     [SerializeField] private GameObject deathSound, impactSound;
+    private AudioSource playerSource;
+
+    [SerializeField] private AudioClip playerMoveSound;
 
 
     [Header("Projectile")] [SerializeField]
@@ -60,6 +64,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         life = FindObjectOfType<Life>();
+        playerSource = GetComponent<AudioSource>();
+        playerSource.clip = playerMoveSound;
         // SetUpMoveBoundaries();
     }
 
@@ -115,7 +121,7 @@ public class Player : MonoBehaviour
 
         transform.position = new Vector2(newXPos, newYPos);
     }
-    
+
     /*private void SetUpMoveBoundaries()
     {
         Camera gameCamera = Camera.main;
@@ -129,27 +135,31 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             //AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
+            playerSource.Play();
             this.gameObject.GetComponent<SpriteRenderer>().sprite = FlyLeft;
         }
 
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             //AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
+            playerSource.Play();
             this.gameObject.GetComponent<SpriteRenderer>().sprite = FlyUp;
         }
 
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             //AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
+            playerSource.Play();
             this.gameObject.GetComponent<SpriteRenderer>().sprite = FlyDown;
         }
 
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             //AudioSource.PlayClipAtPoint(flySound, Camera.main.transform.position, flySoundVolume);
+            playerSource.Play();
             this.gameObject.GetComponent<SpriteRenderer>().sprite = FlyRight;
         }
         else if (Input.anyKey == false)
@@ -159,7 +169,6 @@ public class Player : MonoBehaviour
 
         Move();
         Fire();
-        FireSound();
     }
 
     IEnumerator ChangeColor()
@@ -172,10 +181,21 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
+        Debug.Log(other.name + " has hit you");
+
+        if (other.gameObject.CompareTag("healthPack"))
+        {
+            int healAmount = other.gameObject.GetComponent<HealthPack>().healValue;
+            health += healAmount;
+            GameObject healIndecator = Instantiate(healthValue, transform.position, Quaternion.identity);
+            healIndecator.GetComponent<HealthValueIndecator>().setText(healAmount);
+            HealthUpdateAdd();
+            Destroy(other.gameObject);
+        }
         
         GameObject sound = Instantiate(impactSound, transform.position, Quaternion.identity);
         sound.GetComponent<KillCo>().triggerDeath(.2f);
-        
+
         Debug.Log(other.name + " has hit");
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer)
@@ -202,29 +222,14 @@ public class Player : MonoBehaviour
     {
         FindObjectOfType<Level>().LoadGameOver();
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
-        
+
         GameObject sound = Instantiate(deathSound, transform.position, Quaternion.identity);
         sound.GetComponent<KillCo>().triggerDeath(1f);
-        
+
         Destroy(explosion, DurationOfexplosion);
         Destroy(gameObject);
         
-        
         //AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
-    }
-
-    void createSound()
-    {
-        
-    }
-
-
-    private void FireSound()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //AudioSource.PlayClipAtPoint(singleFireSound, Camera.main.transform.position, singleFireSoundVolume);
-        }
     }
 
     private void HealthUpdate()
@@ -252,6 +257,34 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             life.MinusLife5(4);
+        }
+    }
+    
+    private void HealthUpdateAdd()
+    {
+        if (health >= 800)
+        {
+            life.AddLife(0);
+        }
+
+        if (health >= 600)
+        {
+            life.AddLife(1);
+        }
+
+        if (health >= 400)
+        {
+            life.AddLife(2);
+        }
+
+        if (health >= 200)
+        {
+            life.AddLife(3);
+        }
+
+        if (health >= 0)
+        {
+            life.AddLife(4);
         }
     }
 }

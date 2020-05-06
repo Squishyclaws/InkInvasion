@@ -21,9 +21,12 @@ public class Life : MonoBehaviour
     }
     public void MinusLife5(int heartnumber)
     {
-
         hearts[heartnumber].SetActive(false);
-      
+    }
+    
+    public void AddLife(int heartnumber)
+    {
+        hearts[heartnumber].SetActive(true);
     }
 
 

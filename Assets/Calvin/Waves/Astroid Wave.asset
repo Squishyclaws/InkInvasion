@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98f1eb5f1f188b34ab7759b625f83fad, type: 3}
-  m_Name: Wave_3
+  m_Name: Astroid Wave
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5938342043663655312, guid: c899aa9937539a348b5166c5784050fe,
+  enemyPrefab: {fileID: 1995077290788750477, guid: d267e2f4fff22714ab3b595851f914fc,
     type: 3}
-  pathPrefab: {fileID: 1897822945383811225, guid: 9f2bbcb2329390540b051df566de258d,
+  pathPrefab: {fileID: 4023167457611850466, guid: 7a8ed21d8d7312646b969fb077c19834,
     type: 3}
   timeBetweenSpawns: 0.5
   spawnRandomFactor: 0.3
   numberOfEnemies: 1
-  moveSpeed: 8
+  moveSpeed: 30
